@@ -17,6 +17,8 @@ class P1ibDevice extends Device {
     this.pollTimeout = this.homey.setInterval(async () => {
       await this.update();
     }, 10000);
+
+    
   }
 
   async update() {
@@ -46,6 +48,10 @@ class P1ibDevice extends Device {
       this.setCapabilityValue('measure_power.l1', meterData.powerL1).catch(this.error);
       this.setCapabilityValue('measure_power.l2', meterData.powerL2).catch(this.error);
       this.setCapabilityValue('measure_power.l3', meterData.powerL3).catch(this.error);
+
+      this.setCapabilityValue('measure_power.export_l1', meterData.exportpowerL1).catch(this.error);
+      this.setCapabilityValue('measure_power.export_l2', meterData.exportpowerL2).catch(this.error);
+      this.setCapabilityValue('measure_power.export_l3', meterData.exportpowerL3).catch(this.error);
 
       this.setAvailable().catch(this.error);
     } catch (error) {
