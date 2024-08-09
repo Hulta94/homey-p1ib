@@ -24,6 +24,7 @@ class P1ibDriver extends Driver {
     });
 
     this.homey.flow.getDeviceTriggerCard('meter_power.export_changed');
+    this.homey.flow.getDeviceTriggerCard('measure_power.export_changed');
   }
 
   handleDiscoveryResult(discoveryResult) {
